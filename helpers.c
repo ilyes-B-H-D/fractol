@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 23:13:51 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/01/04 02:57:05 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/01/04 23:26:26 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,20 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
 
-int	ft_get_color(int iter)
+int	ft_get_color(int iter, t_colors *colors)
 {
 	int	color;
 	int	red;
 	int	green;
 	int	blue;
-
-	red = iter * 10 % 256;
-	green = iter * 9 % 256;
-	blue = iter * 1 % 256;
+	
+	red = iter * colors->red % 256;
+	green = iter * colors->green % 256;
+	blue = iter * colors->blue % 256;
 	if (iter == 100)
 		color = 0;
 	else
-		color = (red << 16) | (green << 8) | blue;
+		color = (colors->red << 16) | (colors->green << 8) | colors->blue;
 	return (color);
 }
 
@@ -71,6 +71,16 @@ void	arrows(int keycode, t_vars *vars)
 	}
 }
 
+void	change_color(int keycode, t_vars *vars)
+{
+	if (keycode == 8)
+	{
+		vars->change_color++;
+		ft_render(vars);
+	}
+	
+}
+
 int	close_r(int keycode, t_vars *vars)
 {
 	arrows(keycode, vars);
@@ -81,6 +91,7 @@ int	close_r(int keycode, t_vars *vars)
 		free(vars->mlx);
 		exit(0);
 	}
+	change_color(keycode, vars);
 	ft_render(vars);
 	return (0);
 }

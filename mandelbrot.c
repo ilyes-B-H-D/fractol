@@ -6,20 +6,20 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 23:14:22 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/01/04 01:27:39 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/01/04 23:25:11 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_render_mandelbrot(t_data *img, t_range range)
+void	ft_render_mandelbrot(t_data *img, t_range range, t_colors *colors)
 {
 	int		x;
 	int		y;
 	int		iter;
 	double	real;
 	double	imag;
-
+	
 	x = 0;
 	y = 0;
 	while (x < W)
@@ -32,7 +32,7 @@ void	ft_render_mandelbrot(t_data *img, t_range range)
 			imag = range.max_imag + ((double)y / H) * -(range.max_imag
 					- range.min_imag);
 			iter = get_mandelbrot_color(real, imag);
-			my_mlx_pixel_put(img, x, y, ft_get_color(iter));
+			my_mlx_pixel_put(img, x, y, ft_get_color(iter, *colors));
 			y++;
 		}
 		x++;

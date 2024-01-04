@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 02:46:38 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/01/04 03:10:11 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/01/04 23:18:30 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,39 @@ int	close_red(t_vars *vars)
 
 void	ft_render(t_vars *data)
 {
+	t_colors	color;
+	
+	color.red = 10 + data->change_color;
+	color.green = 9 + data->change_color;
+	color.blue = 1 + data->change_color;
 	if (data->fractol_name == 'm')
-		ft_render_mandelbrot(&data->img, data->range);
+		ft_render_mandelbrot(&data->img, data->range, &color);
 	else if (data->fractol_name == 'j')
-		ft_render_julia(&data->img, data->range, data->av1, data->av2);
+		ft_render_julia(&data->img, data->range, data->av1, data->av2, &color);
 	else if (data->fractol_name == 'b')
-		ft_render_burningship(&data->img, data->range);
+		ft_render_burningship(&data->img, data->range, &color);
 	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
+}
+int	valid_double(char *str)
+{
+	int i;
+	int dot;
+
+	i = 0;
+	dot = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	else if (str[i] < '0' || str[i] > '9')
+		return (0);
+	while (str[i])
+	{
+		if (str[i] == '.')
+			dot++;
+		if (dot > 1)
+			return (0);
+		if (str[i] != '.' && (str[i] < '0' || str[i] > '9'))
+			return (0);
+		i++;
+	}
+	return (1);
 }
