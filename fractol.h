@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 23:13:47 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/01/04 23:25:53 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/01/05 00:27:15 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int			close_r(int keycode, t_vars *vars);
 int			close_red(t_vars *vars);
 
 double		ft_atod(char *str);
-void		change_color(int keycode, t_vars *vars);
+void		ft_change_color(int keycode, t_vars *vars);
 int			valid_double(char *str);
 void		error(void);
 #endif

@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 23:13:51 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/01/04 23:26:26 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/01/05 00:27:02 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int	ft_get_color(int iter, t_colors *colors)
 	
 	red = iter * colors->red % 256;
 	green = iter * colors->green % 256;
-	blue = iter * colors->blue % 256;
+	blue = iter * colors->blue % 256;	
 	if (iter == 100)
 		color = 0;
 	else
-		color = (colors->red << 16) | (colors->green << 8) | colors->blue;
+		color = (red << 16) | (green << 8) | blue;
 	return (color);
 }
 
@@ -71,7 +71,7 @@ void	arrows(int keycode, t_vars *vars)
 	}
 }
 
-void	change_color(int keycode, t_vars *vars)
+void	ft_change_color(int keycode, t_vars *vars)
 {
 	if (keycode == 8)
 	{
@@ -91,7 +91,7 @@ int	close_r(int keycode, t_vars *vars)
 		free(vars->mlx);
 		exit(0);
 	}
-	change_color(keycode, vars);
+	ft_change_color(keycode, vars);
 	ft_render(vars);
 	return (0);
 }

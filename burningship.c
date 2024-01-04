@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 23:13:16 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/01/04 23:26:05 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/01/04 23:44:30 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_render_burningship(t_data *img, t_range range, t_colors *colors)
 			imag = range.max_imag + ((double)y / H) * -(range.max_imag
 					- range.min_imag);
 			iter = get_burningship_color(real, imag);
-			my_mlx_pixel_put(img, x, y, ft_get_color(iter, *colors));
+			my_mlx_pixel_put(img, x, y, ft_get_color(iter, colors));
 			y++;
 		}
 		x++;
