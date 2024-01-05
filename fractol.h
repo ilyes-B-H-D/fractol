@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilyes <ilyes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 23:13:47 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/01/05 00:27:15 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/01/05 05:26:13 by ilyes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int			close_r(int keycode, t_vars *vars);
 int			ft_get_color(int iter, t_colors *colors);
 void		ft_render(t_vars *data);
 void		ft_render_mandelbrot(t_data *img, t_range range, t_colors *colors);
-void		ft_render_julia(t_data *img, t_range range, double ac1, double ac2, t_colors *colors);
+void		ft_render_julia(t_data *img, t_range range, double ac1, double ac2);
 void		ft_render_burningship(t_data *img, t_range range, t_colors *colors);
 
 void		my_mlx_pixel_put(t_data *img, int x, int y, int color);

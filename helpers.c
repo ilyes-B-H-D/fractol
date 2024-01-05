@@ -3,24 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilyes <ilyes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 23:13:51 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/01/05 00:27:02 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/01/05 05:27:59 by ilyes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	while (*s1 && *(unsigned char *)s1 == *(unsigned char *)s2)
-	{
-		s1++;
-		s2++;
-	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
-}
 
 int	ft_get_color(int iter, t_colors *colors)
 {
@@ -28,10 +18,10 @@ int	ft_get_color(int iter, t_colors *colors)
 	int	red;
 	int	green;
 	int	blue;
-	
+
 	red = iter * colors->red % 256;
 	green = iter * colors->green % 256;
-	blue = iter * colors->blue % 256;	
+	blue = iter * colors->blue % 256;
 	if (iter == 100)
 		color = 0;
 	else
@@ -78,7 +68,6 @@ void	ft_change_color(int keycode, t_vars *vars)
 		vars->change_color++;
 		ft_render(vars);
 	}
-	
 }
 
 int	close_r(int keycode, t_vars *vars)

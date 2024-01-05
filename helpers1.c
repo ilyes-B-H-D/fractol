@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helpers1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilyes <ilyes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 02:46:38 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/01/04 23:50:16 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/01/05 05:29:59 by ilyes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,23 @@ int	close_red(t_vars *vars)
 void	ft_render(t_vars *data)
 {
 	t_colors	color;
-	
+
 	color.red = 10 + data->change_color;
 	color.green = 9 + data->change_color;
 	color.blue = 1 + data->change_color;
 	if (data->fractol_name == 'm')
 		ft_render_mandelbrot(&data->img, data->range, &color);
 	else if (data->fractol_name == 'j')
-		ft_render_julia(&data->img, data->range, data->av1, data->av2, &color);
+		ft_render_julia(&data->img, data->range, data->av1, data->av2);
 	else if (data->fractol_name == 'b')
 		ft_render_burningship(&data->img, data->range, &color);
 	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
 }
+
 int	valid_double(char *str)
 {
-	int i;
-	int dot;
+	int	i;
+	int	dot;
 
 	i = 0;
 	dot = 0;
@@ -68,4 +69,14 @@ int	valid_double(char *str)
 		i++;
 	}
 	return (1);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 && *(unsigned char *)s1 == *(unsigned char *)s2)
+	{
+		s1++;
+		s2++;
+	}
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }

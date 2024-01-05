@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilyes <ilyes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 23:03:28 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/01/04 23:19:08 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/01/05 05:29:35 by ilyes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ int	mouse_scroll(int button, int x, int y, t_vars *data)
 void	helper(t_vars *data, char **av)
 {
 	t_colors	color;
-	
+
 	color.red = 10;
 	color.green = 9;
 	color.blue = 1;
 	if (!ft_strcmp(av[1], "mandelbrot"))
-	{ 
+	{
 		data->fractol_name = 'm';
 		ft_render_mandelbrot(&data->img, data->range, &color);
 	}
@@ -63,7 +63,7 @@ void	helper(t_vars *data, char **av)
 	{
 		data->fractol_name = 'j';
 		ft_render_julia(&data->img, data->range, ft_atod(av[2]),
-			ft_atod(av[3]), &color);
+			ft_atod(av[3]));
 		data->av1 = ft_atod(av[2]);
 		data->av2 = ft_atod(av[3]);
 	}
@@ -84,9 +84,8 @@ void	process_data(t_vars *data, char **av)
 		free(data->mlx);
 		exit(0);
 	}
-	data->img.addr = mlx_get_data_addr(data->img.img,
-			&data->img.bits_per_pixel, &data->img.line_length,
-			&data->img.endian);
+	data->img.addr = mlx_get_data_addr(data->img.img, &data->img.bits_per_pixel,
+			&data->img.line_length, &data->img.endian);
 	data->range.min_real = -2.0;
 	data->range.max_real = 2.0;
 	data->range.min_imag = -2.0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilyes <ilyes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 23:14:22 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/01/05 00:33:46 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/01/05 05:29:11 by ilyes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_render_mandelbrot(t_data *img, t_range range, t_colors *colors)
 	int		iter;
 	double	real;
 	double	imag;
-	
+
 	x = 0;
 	y = 0;
 	while (x < W)
